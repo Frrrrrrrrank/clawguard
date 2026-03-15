@@ -44,6 +44,7 @@ export const permissionOverreachRule: Rule = {
     }
 
     for (const envVar of envVars) {
+      if (typeof envVar !== "string") continue;
       for (const keyword of SENSITIVE_ENV_KEYWORDS) {
         if (envVar.toUpperCase().includes(keyword)) {
           findings.push({

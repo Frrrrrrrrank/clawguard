@@ -127,7 +127,11 @@ export async function scanDirectory(
   const results: ScanResult[] = [];
   for (const skillFile of skillFiles) {
     const skillDir = join(dirPath, skillFile, "..");
-    results.push(await scanSkill(skillDir, options));
+    try {
+      results.push(await scanSkill(skillDir, options));
+    } catch {
+      // Skip skills that fail to parse
+    }
   }
   return results;
 }
