@@ -1,0 +1,44 @@
+{
+  "name": "clawguard",
+  "version": "0.1.0",
+  "description": "Security scanner for OpenClaw skills. Protect your lobster. 🦞🛡️",
+  "type": "module",
+  "bin": {
+    "clawguard": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "openclaw",
+    "security",
+    "scanner",
+    "skill",
+    "prompt-injection",
+    "static-analysis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
