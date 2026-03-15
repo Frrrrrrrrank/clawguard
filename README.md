@@ -79,6 +79,23 @@ jobs:
           path: report.json
 ```
 
+## Roadmap
+
+### Dynamic Runtime Monitor (Coming Soon)
+
+Static scanning catches threats visible in code, but some skills instruct the AI to visit external websites, click buttons, or fetch remote content. These external resources can change at any time — a link that is safe today may serve malware next week.
+
+We are building **ClawGuard Sentinel**, an open-source, self-deployable framework that provides **continuous runtime monitoring** for skills with external interactions:
+
+- **Sandboxed execution** — Each monitored skill runs periodically in an isolated environment (container-based), driven by a lightweight LLM
+- **I/O monitoring** — All inputs and outputs of the skill execution are captured and analyzed for anomalies (unexpected redirects, injected scripts, credential harvesting patterns)
+- **Automatic quarantine** — When a risk is detected, the skill is immediately flagged and disabled, with an alert sent to the user
+- **Self-hosted & open-source** — Users deploy it on their own infrastructure; no data leaves their environment
+
+This addresses a fundamental limitation of static analysis: **the threat surface of a skill extends beyond its source code to every external resource it references**. A skill that says "go to example.com and click Download" is only as safe as that page is *right now*.
+
+> Status: In design. Contributions and feedback welcome — open an issue to discuss.
+
 ## Contributing
 
 Want to add a new detection rule? Each rule is a standalone module in `src/rules/`:
