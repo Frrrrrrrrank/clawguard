@@ -21,6 +21,14 @@ npx clawguard scan ./my-skill/
 
 ## 安装
 
+**作为 OpenClaw Skill**（安装其他 skill 前自动扫描）：
+
+```bash
+clawhub install clawguard-scanner
+```
+
+**作为独立 CLI 工具**：
+
 ```bash
 npm install -g clawguard
 ```
